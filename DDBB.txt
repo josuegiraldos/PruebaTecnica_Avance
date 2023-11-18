@@ -1,0 +1,368 @@
+- Creación de la base de datos en Compass (mongoDB):
+use Avance
+
+
+- Creación de la colección "tipodocumento":
+db.tipodocumento.insertMany([
+{
+	"descripcion": "Factura"
+},
+{
+	"descripcion": "Nota Debito"
+},
+{
+	"descripcion": "Nota Credito"
+}])
+
+
+- Creación de la colección "empresa:
+db.empresa.insertMany([
+{
+	"identificacion": "801.235.560-7",
+	"razonsocial": "Empresa A"
+},
+{
+	"identificacion": "835.125.369-4",
+	"razonsocial": "Empresa B"
+},
+{
+	"identificacion": "826.975.421-6",
+	"razonsocial": "Empresa C"
+}])
+
+
+- Creación de la colección "estado":
+db.estado.insertMany([
+{
+	"descripcion": "Recibido",
+	"exitoso": true
+},
+{
+	"descripcion": "En validación",
+	"exitoso": true
+},
+{
+	"descripcion": "Sin errores",
+	"exitoso": true
+},
+{
+	"descripcion": "Formato incorrecto",
+	"exitoso": false
+},
+{
+	"descripcion": "Con errores",
+	"exitoso": false
+},
+{
+	"descripcion": "Fuera de vigencia",
+	"exitoso": false
+},
+{
+	"descripcion": "Fuera de rango",
+	"exitoso": false
+}])
+
+
+- Creación de la colección "numeracion":
+
+(Empresa A)
+db.numeracion.insertMany([
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0b"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0e"),
+	"prefijo": "FAC",
+	"consecutivoinicial": 1001,
+	"consecuticofinal": 2000,
+	"vigenciainicial": "2023-01-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0c"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0e"),
+	"prefijo": "NDE",
+	"consecutivoinicial": 3001,
+	"consecuticofinal": 4000,
+	"vigenciainicial": "2023-02-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0d"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0e"),
+	"prefijo": "NCR",
+	"consecutivoinicial": 5001,
+	"consecuticofinal": 6000,
+	"vigenciainicial": "2023-03-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0b"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0e"),
+	"prefijo": "FAC",
+	"consecutivoinicial": 7001,
+	"consecuticofinal": 8000,
+	"vigenciainicial": "2023-03-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0c"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0e"),
+	"prefijo": "NDE",
+	"consecutivoinicial": 9001,
+	"consecuticofinal": 10000,
+	"vigenciainicial": "2023-05-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0d"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0e"),
+	"prefijo": "NCR",
+	"consecutivoinicial": 11001,
+	"consecuticofinal": 12000,
+	"vigenciainicial": "2023-06-01",
+	"vigenciafinal": "2023-12-31"
+}])
+
+(Empresa B)
+db.numeracion.insertMany([
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0b"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0f"),
+	"prefijo": "FAC",
+	"consecutivoinicial": 1501,
+	"consecuticofinal": 2500,
+	"vigenciainicial": "2023-01-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0c"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0f"),
+	"prefijo": "NDE",
+	"consecutivoinicial": 3501,
+	"consecuticofinal": 4500,
+	"vigenciainicial": "2023-02-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0d"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0f"),
+	"prefijo": "NCR",
+	"consecutivoinicial": 5501,
+	"consecuticofinal": 6500,
+	"vigenciainicial": "2023-03-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0b"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0f"),
+	"prefijo": "FAC",
+	"consecutivoinicial": 7501,
+	"consecuticofinal": 8500,
+	"vigenciainicial": "2023-04-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0c"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0f"),
+	"prefijo": "NDE",
+	"consecutivoinicial": 9501,
+	"consecuticofinal": 10500,
+	"vigenciainicial": "2023-05-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0d"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d0f"),
+	"prefijo": "NCR",
+	"consecutivoinicial": 11501,
+	"consecuticofinal": 12500,
+	"vigenciainicial": "2023-06-01",
+	"vigenciafinal": "2023-12-31"
+}])
+
+
+(Empresa C)
+db.numeracion.insertMany([
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0b"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d10"),
+	"prefijo": "FAC",
+	"consecutivoinicial": 1201,
+	"consecuticofinal": 2200,
+	"vigenciainicial": "2023-01-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0c"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d10"),
+	"prefijo": "NDE",
+	"consecutivoinicial": 3201,
+	"consecuticofinal": 4200,
+	"vigenciainicial": "2023-02-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0d"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d10"),
+	"prefijo": "NCR",
+	"consecutivoinicial": 5201,
+	"consecuticofinal": 6200,
+	"vigenciainicial": "2023-03-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0b"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d10"),
+	"prefijo": "FAC",
+	"consecutivoinicial": 7201,
+	"consecuticofinal": 8200,
+	"vigenciainicial": "2023-04-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0c"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d10"),
+	"prefijo": "NDE",
+	"consecutivoinicial": 9201,
+	"consecuticofinal": 10200,
+	"vigenciainicial": "2023-05-01",
+	"vigenciafinal": "2023-12-31"
+},
+{
+	"idtipodocumento": ObjectId("6557978b7b2aac161e072d0d"),
+	"idempresa": ObjectId("65579e0d7b2aac161e072d10"),
+	"prefijo": "NCR",
+	"consecutivoinicial": 11201,
+	"consecuticofinal": 12200,
+	"vigenciainicial": "2023-06-01",
+	"vigenciafinal": "2023-12-31"
+}])
+
+
+- Creación de la colección "documento":
+db.documento.insertMany([
+ 		{
+        "idnumeracion": ObjectId("6557a9427b2aac161e072d21"),
+        "idestado": ObjectId("65579f557b2aac161e072d13"),
+        "numero": 1001,
+        "base": 500.00,
+        "impuestos": 75.00
+    },
+    {
+        "idnumeracion": ObjectId("6557a9427b2aac161e072d22"),
+        "idestado": ObjectId("65579f557b2aac161e072d12"),
+        "numero": 3001,
+        "base": 750.00,
+        "impuestos": 112.50
+    },
+    {
+        "idnumeracion": ObjectId("6557a9427b2aac161e072d23"),
+        "idestado": ObjectId("65579f557b2aac161e072d14"),
+        "numero": 5001,
+        "base": 300.00,
+        "impuestos": 45.00
+    },
+    {
+        "idnumeracion": ObjectId("6557a9427b2aac161e072d24"),
+        "idestado": ObjectId("65579f557b2aac161e072d16"),
+        "numero": 7001,
+        "base": 200.00,
+        "impuestos": 30.00
+    },
+    {
+        "idnumeracion": ObjectId("6557a9427b2aac161e072d25"),
+        "idestado": ObjectId("65579f557b2aac161e072d11"),
+        "numero": 9001,
+        "base": 450.00,
+        "impuestos": 67.50
+    },
+    {
+        "idnumeracion": ObjectId("6557a9427b2aac161e072d26"),
+        "idestado": ObjectId("65579f557b2aac161e072d13"),
+        "numero": 11001,
+        "base": 600.00,
+        "impuestos": 90.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ab257b2aac161e072d27"),
+        "idestado": ObjectId("65579f557b2aac161e072d12"),
+        "numero": 1501,
+        "base": 800.00,
+        "impuestos": 120.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ab257b2aac161e072d28"),
+        "idestado": ObjectId("65579f557b2aac161e072d15"),
+        "numero": 3501,
+        "base": 700.00,
+        "impuestos": 105.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ab257b2aac161e072d29"),
+        "idestado": ObjectId("65579f557b2aac161e072d16"),
+        "numero": 5501,
+        "base": 400.00,
+        "impuestos": 60.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ab257b2aac161e072d2a"),
+        "idestado": ObjectId("65579f557b2aac161e072d12"),
+        "numero": 7501,
+        "base": 250.00,
+        "impuestos": 37.50
+    },
+    {
+        "idnumeracion": ObjectId("6557ab257b2aac161e072d2b"),
+        "idestado": ObjectId("65579f557b2aac161e072d14"),
+        "numero": 9501,
+        "base": 350.00,
+        "impuestos": 52.50
+    },
+    {
+        "idnumeracion": ObjectId("6557ab257b2aac161e072d2c"),
+        "idestado": ObjectId("65579f557b2aac161e072d16"),
+        "numero": 11501,
+        "base": 900.00,
+        "impuestos": 135.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ac827b2aac161e072d2d"),
+        "idestado": ObjectId("65579f557b2aac161e072d11"),
+        "numero": 1201,
+        "base": 600.00,
+        "impuestos": 90.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ac827b2aac161e072d2e"),
+        "idestado": ObjectId("65579f557b2aac161e072d13"),
+        "numero": 3201,
+        "base": 150.00,
+        "impuestos": 22.50
+    },
+    {
+        "idnumeracion": ObjectId("6557ac827b2aac161e072d2f"),
+        "idestado": ObjectId("65579f557b2aac161e072d15"),
+        "numero": 5201,
+        "base": 850.00,
+        "impuestos": 127.50
+    },
+    {
+        "idnumeracion": ObjectId("6557ac827b2aac161e072d30"),
+        "idestado": ObjectId("65579f557b2aac161e072d12"),
+        "numero": 7201,
+        "base": 700.00,
+        "impuestos": 105.00
+    },
+    {
+        "idnumeracion": ObjectId("6557ac827b2aac161e072d31"),
+        "idestado": ObjectId("65579f557b2aac161e072d14"),
+        "numero": 9201,
+        "base": 450.00,
+        "impuestos": 67.50
+    },
+    {
+        "idnumeracion": ObjectId("6557ac827b2aac161e072d32"),
+        "idestado": ObjectId("65579f557b2aac161e072d16"),
+        "numero": 11201,
+        "base": 300.00,
+        "impuestos": 45.00
+    }])
